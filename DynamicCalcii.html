@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Dynamic Calculator</title>
+</head>
+<body>
+	<!-- <img src="C:\Users\lenovo\Downloads\1600x900_ (3).jpg"> -->
+	<span id="DC"> Calculator</span>
+	<p>- by Lalitha Attili </p>
+	<div class="calculator">
+		<div class="buttons">
+			<h2 id="value"></h2>
+			<span id="clear">clear</span>
+			<span id="SC">/</span>
+			<span id="SC">*</span>
+			<span>7</span>
+			<span>8</span>
+			<span>9</span>
+			<span id="SC">-</span>
+			<span>4</span>
+			<span>5</span>
+			<span>6</span>
+			<span id="plus">+</span>
+			<span>1</span>
+			<span>2</span>
+			<span>3</span>
+			<span>0</span>
+			<span>00</span>
+			<span id="SC">.</span>
+			<span id="equal">=</span>
+		</div>
+	</div>
+</body>
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		font-family: consolas;
+	}
+	body{
+		display: flex;
+		justify-content: cneter;
+		align-items: center;
+		min-height: 100vh;
+		background: #D8BFD8;
+/*		background-image: url(C:\Users\lenovo\Downloads\1600x900_ (3).jpg);*/
+/*		background: #edf1f4;*/
+	}
+	
+	#DC{
+		position: absolute;
+		top: 40%;
+		bottom: 40%;
+		left: 10%;
+		font-size: 90px;
+		font-family: cursive;
+	}
+	p{
+		position: absolute;
+		top: 60%;
+		bottom: 30%;
+		left: 35%;
+		font-size: 30px;
+		font-family: cursive;
+	}
+	.calculator{
+		position: relative;
+		left: 60%;
+		width: 400px;
+		height: 500px;
+		padding: 20px;
+		background: #000000;
+/*		background: #edf1f4;*/
+		border-radius: 20px;
+		box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.1),
+		-15px -15px 20px #edf1f4;
+	}
+	.calculator .buttons{
+		position: relative;
+		display: grid;
+	}
+	.calculator .buttons #value{
+		position: relative;
+		grid-column: span 4 ;
+		user-select: none;
+		overflow: none;
+		width: 100%;
+		text-align: end;
+/*		color: #5166d6;*/
+        color: white;
+		height: 100px;
+		line-height: 100px;
+		box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.02),inset -5px -5px 20px #fff;
+		border-radius: 10px;
+		margin-bottom: 12px;
+		padding: 0 20px;
+		font-size: 2em;
+		font-weight: 500;
+	}
+	.calculator .buttons span{
+		position: relative;
+		padding: 10px;
+		box-shadow:  5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 20px #fff;
+		margin: 10px;
+		cursor: pointer;
+		user-select: none;
+		min-width: 40px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 1.2em;
+		color: #666;
+		border: 2px solid #edf1f4;
+		box-shadow: 5px 5px 10px rgba(0, 0, 0, 0), -5px -5px 10px ;
+		border-radius: 10px;
+	}
+	.calculator .buttons span:active{
+		box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1),inset -5px -5px 10px ;
+		color: whitesmoke;
+	}
+	.calculator .buttons span#clear{
+		grid-column: span 2;
+		background: #808080;
+		color: #fff;
+		border: 2px solid #edf1f4;
+	}
+	.calculator .buttons span#SC{
+		background: #808080;
+		color: #fff;
+		border: 2px solid #edf1f4;
+	}
+	.calculator .buttons span#plus{
+		grid-row: span 2;
+		background: #808080;
+		color: #fff;
+		border: 2px solid #edf1f4;
+	}
+	.calculator .buttons span#equal{
+		grid-row: span 2;
+		background: #808080;
+		color: #fff;
+		border: 2px solid #edf1f4;
+	}
+	.calculator .buttons span#clear:active,
+	.calculator .buttons span#plus:active,
+	.calculator .buttons span#equal:active{
+		box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1),-5px -5px 10px #fff ,inset 5px 5px 10px rgba(0, 0, 0, 0.1);
+	}
+</style>
+<script>
+	let buttons = document.querySelector('.buttons');
+	let btn = document.querySelectorAll('span');
+	let value = document.getElementById('value');
+
+
+	for (let i=0; i<btn.length;i++){
+		btn[i].addEventListener("click",function(){
+
+			if(this.innerHTML=="="){
+				value.innerHTML = eval(value.innerHTML);
+			}else{
+				if (this.innerHTML=="clear"){
+					value.innerHTML = "";
+				}
+				else{
+					value.innerHTML += this.innerHTML;
+				}
+			}
+		})
+	}
+
+</script>
+</html>
